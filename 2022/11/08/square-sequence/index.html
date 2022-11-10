@@ -4,16 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Codewars journy</title>
+  <title>Square sequence | Codewars journy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Daily explanation for codewars exercises">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Codewars journy">
-<meta property="og:url" content="https://blog.nitroceluloso.me/index.html">
+  <meta name="description" content="Wellcome!Let’s start with todays kata:  Complete the function that returns an array of length n, starting with the given number x and the squares of the previous number. If n is negative or zero, retu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Square sequence">
+<meta property="og:url" content="https://blog.nitroceluloso.me/2022/11/08/square-sequence/index.html">
 <meta property="og:site_name" content="Codewars journy">
-<meta property="og:description" content="Daily explanation for codewars exercises">
+<meta property="og:description" content="Wellcome!Let’s start with todays kata:  Complete the function that returns an array of length n, starting with the given number x and the squares of the previous number. If n is negative or zero, retu">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-08T12:31:03.000Z">
+<meta property="article:modified_time" content="2022-11-10T16:22:50.346Z">
 <meta property="article:author" content="nitroceluloso">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="7kyu">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Codewars journy" type="application/atom+xml">
@@ -75,9 +79,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-square-sequence" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-square-sequence" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/08/square-sequence/" class="article-date">
   <time class="dt-published" datetime="2022-11-08T12:31:03.000Z" itemprop="datePublished">2022-11-08</time>
@@ -90,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/08/square-sequence/">Square sequence</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Square sequence
     </h1>
   
 
@@ -132,81 +134,19 @@
     </footer>
   </div>
   
-</article>
-
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-filter-list-for-numbers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/07/filter-list-for-numbers/" class="article-date">
-  <time class="dt-published" datetime="2022-11-07T19:28:40.000Z" itemprop="datePublished">2022-11-07</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/07/filter-list-for-numbers/">Filter list for numbers</a>
-    </h1>
+    <a href="/2022/11/07/filter-list-for-numbers/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Filter list for numbers</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h3 id="Today’s-exercise"><a href="#Today’s-exercise" class="headerlink" title="Today’s exercise:"></a>Today’s exercise:</h3><blockquote>
-<p>In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.</p>
-<blockquote>
-<h6 id="Kata-created-by-cmgerber"><a href="#Kata-created-by-cmgerber" class="headerlink" title="Kata created by cmgerber"></a>Kata created by <a target="_blank" rel="noopener" href="https://www.codewars.com/users/cmgerber">cmgerber</a></h6></blockquote>
-</blockquote>
-<p>Anything out of the ordinary that you would probably do in a normal day at work, having that in mind you could thing in something like this.</p>
-<figure class="highlight js"><figcaption><span>First iteration</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">filterList</span> (list) &#123;</span><br><span class="line">  <span class="keyword">var</span> numberList = [];</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; list.<span class="property">length</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">const</span> item = list[i];</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> item === <span class="string">&#x27;number&#x27;</span>) numberList.<span class="title function_">push</span>(item)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> numberList;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>this would be the “traditional” aproach, but there is a couple of things that are expendable</p>
-<ul>
-<li>empty array that we will mutate over the iteration loop</li>
-<li>the implementation of a loop with his variables</li>
-</ul>
-<p>a cleaner way to do the same (the inmutable way) would be:</p>
-<figure class="highlight js"><figcaption><span>Second iteration</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">filterList</span> (list) &#123;</span><br><span class="line">  <span class="keyword">return</span> list.<span class="title function_">filter</span>(<span class="function"><span class="params">el</span> =&gt;</span> <span class="keyword">typeof</span> el === <span class="string">&#x27;number&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Intead of using the old and confortable for, we use the filter method of the array, thus we don’t need and mutate an empty array nor the variables required in the for loop.</p>
-<p>I have to confess that while reading the kata for the first time, my mind was *<em>watch out with the NaN</em>. What is the issue with NaN you may ask?</p>
-<blockquote>
-<p>typeof NaN &#x3D;&#x3D;&#x3D; ‘number’</p>
-</blockquote>
-<p>So if hipotheticatly in the list that this function receives, there is a NaN, this is gonna be in the returned array aswell. Luckly with an extra validation we can fix it.</p>
-<figure class="highlight js"><figcaption><span>Third iteration</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">filter_list</span>(<span class="params">l</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> l.<span class="title function_">filter</span>(<span class="function"><span class="params">el</span> =&gt;</span> !<span class="built_in">isNaN</span>(el) &amp;&amp; <span class="keyword">typeof</span> el === <span class="string">&#x27;number&#x27;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>and yes, this was the solution that I submited for the kata.But then, reading the others solution I found a clever aproach.</p>
-<figure class="highlight js"><figcaption><span>It wasn't exaclty like this</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">filter_list</span>(<span class="params">l</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> l.<span class="title function_">filter</span>(<span class="function"><span class="params">el</span> =&gt;</span> <span class="title class_">Number</span>.<span class="title function_">isInteger</span>(el));</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>Better and cleaner, only one function call was needed. The only thing that I can change about this aproach that you can implement it a little cleaner.</p>
-<figure class="highlight js"><figcaption><span>Final version</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">filter_list</span>(<span class="params">l</span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> l.<span class="title function_">filter</span>(<span class="title class_">Number</span>.<span class="property">isInteger</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>by the way, I deliberately keep the filter_list function the same way that was presented in the kata, so no arrow function for it.</p>
-<p>Without any more to write, until tomorrow!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.nitroceluloso.me/2022/11/07/filter-list-for-numbers/" data-id="claba462g0001vgi380cwgot1" data-title="Filter list for numbers" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/7kyu/" rel="tag">7kyu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
 
 
 </section>

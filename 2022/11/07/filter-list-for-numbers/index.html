@@ -4,16 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Codewars journy</title>
+  <title>Filter list for numbers | Codewars journy</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Daily explanation for codewars exercises">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Codewars journy">
-<meta property="og:url" content="https://blog.nitroceluloso.me/index.html">
+  <meta name="description" content="Today’s exercise: In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.  Kata created by cmgerber  Anythi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Filter list for numbers">
+<meta property="og:url" content="https://blog.nitroceluloso.me/2022/11/07/filter-list-for-numbers/index.html">
 <meta property="og:site_name" content="Codewars journy">
-<meta property="og:description" content="Daily explanation for codewars exercises">
+<meta property="og:description" content="Today’s exercise: In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.  Kata created by cmgerber  Anythi">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-11-07T19:28:40.000Z">
+<meta property="article:modified_time" content="2022-11-08T12:04:44.997Z">
 <meta property="article:author" content="nitroceluloso">
+<meta property="article:tag" content="javascript">
+<meta property="article:tag" content="7kyu">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="Codewars journy" type="application/atom+xml">
@@ -75,69 +79,7 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-square-sequence" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2022/11/08/square-sequence/" class="article-date">
-  <time class="dt-published" datetime="2022-11-08T12:31:03.000Z" itemprop="datePublished">2022-11-08</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/08/square-sequence/">Square sequence</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Wellcome!<br>Let’s start with todays kata:</p>
-<blockquote>
-<p>Complete the function that returns an array of length n, starting with the given number x and the squares of the previous number. If n is negative or zero, return an empty array&#x2F;list.</p>
-</blockquote>
-<p>When I first starting to write the code I understood that I had to return an array with the “detailed” square sequence, so if I receive 2^4, the returned array would be [2,4,8, 16], intead of the wanted result that is [2, 4, 16, 256].</p>
-<figure class="highlight js"><figcaption><span>First iteration</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">squares</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt;=<span class="number">0</span>) <span class="keyword">return</span> [];</span><br><span class="line">    <span class="keyword">const</span> squaresArray = [x];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> count = <span class="number">1</span>; count &lt; n; count++)&#123;</span><br><span class="line">        <span class="keyword">const</span> square = squaresArray[squaresArray.<span class="property">length</span> - <span class="number">1</span>] ** <span class="number">2</span></span><br><span class="line">        squaresArray.<span class="title function_">push</span>(square)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> squaresArray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>This solution uses the for loop to add each previous element (to the square) into a new array. But as I try to use arrays and its methods (because I like the redability).<br>This would be “better” aproach:</p>
-<figure class="highlight js"><figcaption><span>Second iteration</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">squares</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(n &lt;= <span class="number">0</span>) <span class="keyword">return</span> []</span><br><span class="line">  <span class="keyword">const</span> factors = <span class="keyword">new</span> <span class="title class_">Array</span>(n -<span class="number">1</span>).<span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> factors.<span class="title function_">reduce</span>(<span class="function">(<span class="params">prev, el</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> prevEl = prev[prev.<span class="property">length</span>-<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">return</span> prev.<span class="title function_">concat</span>(prevEl**<span class="number">2</span>);</span><br><span class="line">  &#125;, [x]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>In the line 3 I create an array of n-1 length (empty), and then filled with 0, so I can loop it after.<br>On line 6 I use the reduce method, and a initial value an array with the first number.</p>
-<p>This second iteration was the answer that I sent, so now I will show you some interesting things that I found taking a look of the others solutions:</p>
-<figure class="highlight js"><figcaption><span>Founeded solution A (not exactly like this)</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">squares</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(n &lt;= <span class="number">0</span>) <span class="keyword">return</span> []</span><br><span class="line">  <span class="keyword">const</span> factors = <span class="keyword">new</span> <span class="title class_">Array</span>(n -<span class="number">1</span>).<span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> factors.<span class="title function_">reduce</span>(<span class="function">(<span class="params">prev, el</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> prevEl = prev[prev.<span class="property">length</span>-<span class="number">1</span>];</span><br><span class="line">    <span class="keyword">const</span> squareNumber = <span class="title class_">Math</span>.<span class="title function_">pow</span>(prevEl, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> prev.<span class="title function_">concat</span>(squareNumber);</span><br><span class="line">  &#125;, [x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p>I wasn’t aware of the method pow from Math, I was aware only of the ** operator.</p>
-<p><em>other consideration</em></p>
-<p>There is this <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/at">at</a> array method, which is cleaner that the array[array.length] way, so the previous code will look like this:</p>
-<figure class="highlight js"><figcaption><span>Using at method</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">squares</span>(<span class="params">x, n</span>) &#123;</span><br><span class="line">  <span class="keyword">if</span>(n &lt;= <span class="number">0</span>) <span class="keyword">return</span> []</span><br><span class="line">  <span class="keyword">const</span> factors = <span class="keyword">new</span> <span class="title class_">Array</span>(n -<span class="number">1</span>).<span class="title function_">fill</span>(<span class="number">0</span>);</span><br><span class="line">  <span class="keyword">return</span> factors.<span class="title function_">reduce</span>(<span class="function">(<span class="params">prev, el</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> prevEl = prev.<span class="title function_">at</span>(-<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">const</span> squareNumber = <span class="title class_">Math</span>.<span class="title function_">pow</span>(prevEl, <span class="number">2</span>);</span><br><span class="line">    <span class="keyword">return</span> prev.<span class="title function_">concat</span>(squareNumber);</span><br><span class="line">  &#125;, [x]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p>I prefer this way <em>mainy</em> because is shorter and as easy to understand.</p>
-<p>With nothing more to write, until the next post!</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://blog.nitroceluloso.me/2022/11/08/square-sequence/" data-id="claba462b0000vgi3550qhkw3" data-title="Square sequence" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/7kyu/" rel="tag">7kyu</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/" rel="tag">javascript</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-filter-list-for-numbers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-filter-list-for-numbers" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2022/11/07/filter-list-for-numbers/" class="article-date">
   <time class="dt-published" datetime="2022-11-07T19:28:40.000Z" itemprop="datePublished">2022-11-07</time>
@@ -150,8 +92,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2022/11/07/filter-list-for-numbers/">Filter list for numbers</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      Filter list for numbers
     </h1>
   
 
@@ -202,11 +144,23 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
+  
+    <a href="/2022/11/08/square-sequence/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Square sequence
+        
+      </div>
+    </a>
+  
+  
+</nav>
 
   
+</article>
 
 
 </section>
